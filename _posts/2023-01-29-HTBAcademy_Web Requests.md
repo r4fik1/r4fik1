@@ -13,6 +13,8 @@ tags:
   - Bug Bounty Hunter
   - Web
   - OWASP TOP 10
+layout: single
+toc: true
 ---
 ![image-center](\assets\images\HTB_web_requests\upper.jpg)
 ## Module Summary
