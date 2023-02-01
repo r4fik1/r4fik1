@@ -16,7 +16,7 @@ author_profile: true
 
 **September 2022 - Present**
 > <div style="text-align: left"><img style="float: left; padding-right:10px" src="\assets\images\swisscom.png" width="110" height="110">Swisscom | Rotterdam (The Netherlands)</div><br>
-<span style="font-size:35px">**DevSecOps Automation & Security Engineer**</span>
+<span style="font-size:25px">**DevSecOps Automation & Security Engineer**</span>
 - <div style="text-align: justify">Help to find the best solutions as a liaison between the DevOps developers and Security Leadership of Swisscom.</div>
 - <div style="text-align: justify">Evaluate, test, configure and run innovative security tools/features to be used by more than a thousand developers in a cloud native manner.</div>
 - <div style="text-align: justify">Support and communicate with development and operations teams about security tooling and automation in diverse projects.</div>
@@ -28,7 +28,7 @@ author_profile: true
 
 **July 2021 - September 2022**
 > <div style="text-align: left"><img style="float: left; padding-right:10px" src="\assets\images\aegon.png" width="110" height="110">Aegon | Madrid (Spain)</div><br>
-<span style="font-size:35px">**Application Security Engineer**</span>
+<span style="font-size:25px">**Application Security Engineer**</span>
 - <div style="text-align: justify">Help the organization to evolve its application security functions and services.</div>
 - <div style="text-align: justify">Responsible for upholding code reviews across all code platforms.</div>
 - <div style="text-align: justify">Take charge of bug intake and remediation process for the organization.</div>
@@ -40,7 +40,7 @@ author_profile: true
 
 **January 2021 - July 2021**
 > <div style="text-align: left"><img style="float: left; padding-right:10px" src="\assets\images\between.jpg" width="110" height="110">Between Technology | Barcelona (Spain)</div><br>
-<span style="font-size:35px">**Security Analyst**</span>
+<span style="font-size:25px">**Security Analyst**</span>
 - <div style="text-align: justify">Implementation of security (ISO 27001, ENS) on projects under development.</div>
 - <div style="text-align: justify">Secure data, file integrity, application registry encryption, network access control.</div>
 - <div style="text-align: justify">Detection of vulnerabilities in the source code (C++, .NET).</div>
@@ -49,19 +49,19 @@ author_profile: true
 
 **March 2019 - December 2020**
 > <div style="text-align: left"><img style="float: left; padding-right:10px" src="\assets\images\gyd.jpg" width="110" height="110">Giesecke+Devrient Mobile Security | Barcelona (Spain)</div><br>
-<span style="font-size:35px">**Test Manager**</span>
+<span style="font-size:25px">**Test Manager**</span>
 - <div style="text-align: justify">Manage test design, test execution and test analysis.</div>
 - <div style="text-align: justify">Test cases creation based on technical designs and implementation by using a C++ automation framework.</div>
 - <div style="text-align: justify">Execution, analysis and bug fixing of test results as well as system behavior reporting.</div>
 
 **April 2020 - June 2020**
 > <div style="text-align: left"><img style="float: left; padding-right:10px" src="\assets\images\ilunion.png" width="110" height="110">ILUNION Security | Remote (Spain)</div><br>
-<span style="font-size:35px">**Intelligence Service InternShip**</span>
+<span style="font-size:25px">**Intelligence Service InternShip**</span>
 - <div style="text-align: justify">Implement a search engine in Java using the Twitter4j API.</div>
 
 **November 2018 - January 2019**
 > <div style="text-align: left"><img style="float: left; padding-right:10px" src="\assets\images\junta.jpg" width="110" height="110">Junta de Castilla y León | Valladolid (Spain)</div><br>
-<span style="font-size:35px">**Information Management Department Internship**</span>
+<span style="font-size:25px">**Information Management Department Internship**</span>
 - <div style="text-align: justify">Monitoring and testing a web application.</div>
 
 ## Education History
