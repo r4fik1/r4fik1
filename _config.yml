@@ -99,32 +99,32 @@ analytics:
   provider               : "google-gtag"
   google:
     measurement_id       : "G-LT25L2HMJV"
-    anonymize_ip         : false # true, false (default)
+    anonymize_ip         : true # true, false (default)
 
 
 # Site Author
 author:
   name             : "Marcos Martín Gutiérrez"
   avatar           : "/assets/images/logoMarcos.png"
-  bio              : "Application Security Engineer"
-  location         : "Somewhere"
-  email            : "r4f1k1hacks@gmail.com"
+  bio              : "DevSecOps Automation & Security Engineer"
+  location         : "The Netherlands"
+  email            : "marcosmartingutierrez89@gmail.com"
   links:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/marcos-martin-gutierrez/"
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      #url: "marcosmartingutierrez89@gmail"
+      url: "marcosmartingutierrez89@gmail"
     - label: "Try Hack Me"
       icon: "fab fa-cloudversify"
       url: #"https://tryhackme.com/badge/445073"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/r4fikihacks"
+      url: "https://twitter.com/r4fik1_"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/r4fiki"
+      url: "https://github.com/r4fik1"
     - label: "Try Hack Me"
       icon: "fab fa-cloudversify"
       url: "https://tryhackme.com/p/r4f1k1"
@@ -134,9 +134,15 @@ author:
     - label: "YouTube"
       icon: "fab fa-youtube"
       url: "https://www.youtube.com/channel/UCkn830sBFHvlJQn7soICvhw"
-    # - label: "Buy Me A Coffee"
-      # icon: "fas fa-mug-hot"
-      # url: "https://www.buymeacoffee.com/marcosmartin   "
+    - label: "Instagram"
+      icon: "fab fa-instagram"
+      url: "https://www.instagram.com/r4fik1/"
+    - label: "TikTok"
+      icon: "fab fa-tiktok"
+      url: "https://www.tiktok.com/@r4fik1"
+    - label: "Buy Me A Coffee"
+      icon: "fas fa-mug-hot"
+      url: "https://www.buymeacoffee.com/marcosmartin"
 # Site Footer
 footer:
   links:
@@ -145,23 +151,28 @@ footer:
       url: "https://www.linkedin.com/in/marcos-martin-gutierrez/"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/r4f1k1hacks"
+      url: "https://twitter.com/r4fik1_"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://twitter.com/r4f1k1hacks"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: https://github.com/r4fiki
+      url: https://github.com/r4fik1
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
     - label: "Bitbucket"
       icon: "fab fa-fw fa-bitbucket"
       # url:
+    - label: "YouTube"
+      icon: "fab fa-youtube"
+      url: "https://www.youtube.com/channel/UCkn830sBFHvlJQn7soICvhw"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url:
-
+      url: "https://www.instagram.com/r4fik1/"
+    - label: "TikTok"
+      icon: "fab fa-fw fa-tiktok"
+      url: "https://www.tiktok.com/@r4fik1"
     - label: "YouTube"
       icon: "fab fa-youtube"
       url: "https://www.youtube.com/channel/UCkn830sBFHvlJQn7soICvhw"

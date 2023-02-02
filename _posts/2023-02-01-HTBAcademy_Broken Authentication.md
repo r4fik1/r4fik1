@@ -1,5 +1,5 @@
 ---
-title: "[HTB] Broken Authentication"
+title: "[HTB_Academy] Broken Authentication"
 excerpt: "**Broken Authentication** Module Walkthrough - HackTheBox Academy"
 header:
   overlay_image: /assets/images/HTB_broken_authentication/banner.png
@@ -29,34 +29,46 @@ This module covers common vulnerabilities and misconfigurations regarding Authen
 
 > **Q. Inspect the login page and perform a bruteforce attack. What is the valid username?**
 
-<div style="text-align: justify">1. If we access the target and see that it is a login page </div>
+<div style="text-align: justify">1. If we access the target and see that it is a login page </div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q1\1.png)
 
-<div style="text-align: justify">2. We inspect the source code of the login page and see that the title of the login page displays some interesting information: WebAccess HMI/SCADA Software. </div>
+<div style="text-align: justify">2. We inspect the source code of the login page and see that the title of the login page displays some interesting information: WebAccess HMI/SCADA Software. </div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q1\2.png)
 
 <div style="text-align: justify">3. Doing a bit of searching on the internet, we found the following page: [SCADA HMI Username/Password](https://www.192-168-1-1-ip.co/router/advantech/advantech-webaccess-browser-based-hmi-and-scada-software/11215/)
-in which there are several default "usernames" and "passwords" for SCADA. </div>
+in which there are several default "usernames" and "passwords" for SCADA. </div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q1\3.png)
 
-<div style="text-align: justify">4. A brute force attack is performed using the Burpsuite tool. To do this, we first capture the login request and send it to the Burpsuite Intruder: </div>
+<div style="text-align: justify">4. A brute force attack is performed using the Burpsuite tool. To do this, we first capture the login request and send it to the Burpsuite Intruder: </div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q1\4.png)
 
-<div style="text-align: justify">5. In the intruder we select Cluster Bomb as Attack Type and the payload positions in the "Username" and "Password" values. </div>
+<div style="text-align: justify">5. In the intruder we select Cluster Bomb as Attack Type and the payload positions in the "Username" and "Password" values. </div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q1\5.png)
 
-<div style="text-align: justify">6. In the payloads tab we enter the usernames and password from step 3, both in payload set 1 and in payload set 2 and we execute the attack. </div>
+<div style="text-align: justify">6. In the payloads tab we enter the usernames and password from step 3, both in payload set 1 and in payload set 2 and we execute the attack. </div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q1\6.png)
 
-<div style="text-align: justify">7. In the Burpsuite results we can see how one of the requests has a different length. </div>
+<div style="text-align: justify">7. In the Burpsuite results we can see how one of the requests has a different length. </div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q1\7.png)
 
-<div style="text-align: justify">8. If we access the answer, we see how the session has been started correctly and therefore we already have the username of the question: </div>
+<div style="text-align: justify">8. If we access the answer, we see how the session has been started correctly and therefore we already have the username of the question: </div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q1\8.png)
 
 ## Weak Bruteforce Protections
 
 >**Q. Observe the web application based at subdirectory /question1/ and infer rate limiting. What is the wait time imposed after an attacker hits the limit? (round to a 10-second timeframe, e.g., 10 or 20)**
+
+Accedemos al target y vemos que es una pagina de login. 
+
+Como la pregunta nos pide el tiempo de espera, enviamos la peticion el intruder para realizar un proceso similar al anterior.
+
+En el intruder seleccionamos como Attack Type "Snyper" y como payload solamente el nombre de usuario o la password (en este ejemplo usaremos el nombre de usuario).
+
+Introducimos como payload una seria de valores aleatorios.
+
+Ejecutamos el ataque y vemos como la longitud de la respuesta cambia en determinado momento.
+
+Viendo la respuesta de la primera peticion con longitud diferente, descubrimos el tiempo de espera.
 
 >**Q. Work on webapp at URL /question2/ and try to bypass the login form using one of the method showed. What is the flag?**
 
