@@ -58,9 +58,9 @@ in which there are several default "usernames" and "passwords" for SCADA. </div>
 
 >**Q. Observe the web application based at subdirectory /question1/ and infer rate limiting. What is the wait time imposed after an attacker hits the limit? (round to a 10-second timeframe, e.g., 10 or 20)**
 
-Accedemos al target y vemos que es una pagina de login. 
+<div style="text-align: justify">Accedemos al target y vemos que es una pagina de login. </div><br>
 
-Como la pregunta nos pide el tiempo de espera, enviamos la peticion el intruder para realizar un proceso similar al anterior.
+<div style="text-align: justify">Como la pregunta nos pide el tiempo de espera, enviamos la peticion el intruder para realizar un proceso similar al anterior.</div><br>
 
 En el intruder seleccionamos como Attack Type "Snyper" y como payload solamente el nombre de usuario o la password (en este ejemplo usaremos el nombre de usuario).
 
