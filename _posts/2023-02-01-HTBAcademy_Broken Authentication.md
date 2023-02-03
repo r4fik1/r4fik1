@@ -35,8 +35,9 @@ This module covers common vulnerabilities and misconfigurations regarding Authen
 <div style="text-align: justify">2. We inspect the source code of the login page and see that the title of the login page displays some interesting information: WebAccess HMI/SCADA Software. </div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q1\2.png)
 
-<div style="text-align: justify">3. Doing a bit of searching on the internet, we found the following page: [SCADA HMI Username/Password](https://www.192-168-1-1-ip.co/router/advantech/advantech-webaccess-browser-based-hmi-and-scada-software/11215/)
-in which there are several default "usernames" and "passwords" for SCADA. </div><br>
+<div style="text-align: justify">3. Doing a bit of searching on the internet, we found the following webpage, in which there are several default "usernames" and "passwords" for SCADA. </div><br>
+[SCADA HMI Username/Password](https://www.192-168-1-1-ip.co/router/advantech/advantech-webaccess-browser-based-hmi-and-scada-software/11215/)
+ 
 ![image-center](\assets\images\HTB_broken_authentication\Q1\3.png)
 
 <div style="text-align: justify">4. A brute force attack is performed using the Burpsuite tool. To do this, we first capture the login request and send it to the Burpsuite Intruder: </div><br>
