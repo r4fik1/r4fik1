@@ -26,6 +26,11 @@ toc: true
 <div style="text-align: justify">The following post may contain spoilers. Use it as a guide or support. It is always better to try it by yourself!</div>
 <div style="text-align: justify">Enjoy :)</div><br>
 
+## Resources
+<img style="float: left; padding-right:10px" src="\assets\images\github.avif" width="110" height="110">
+<div style="text-align: justify">All resources can be found in the following GitHub repository:</div>
+[R4fik1_HTB_broken_authentication_Repository](https://github.com/r4fik1/HTB_Academy/tree/main/HTB_broken_authentication)
+
 ## Module Summary
 <div style="text-align: justify">This module covers common vulnerabilities and misconfigurations regarding Authentication that could be leveraged to gain unauthorized access to a web application. Specifically, in this module, we will cover:</div><br>
 
@@ -38,7 +43,7 @@ toc: true
 
 > **Q. Inspect the login page and perform a bruteforce attack. What is the valid username?**
 
-<div style="text-align: justify">1. If we access the target and see that it is a login page </div><br>
+<div style="text-align: justify">1. If we access the target and see that it is a login page.</div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q1\1.png)
 
 <div style="text-align: justify">2. We inspect the source code of the login page and see that the title of the login page displays some interesting information: WebAccess HMI/SCADA Software. </div><br>
