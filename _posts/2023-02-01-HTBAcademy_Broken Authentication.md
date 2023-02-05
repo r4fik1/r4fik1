@@ -12,24 +12,27 @@ tags:
   - HTB-Academy
   - Bug Bounty Hunter
   - Web
-  - OWASP TOP 10
+  - Authentication
+  - Cookies
+  - Session
+  - Brute Force
+  - Python
+  - Bash
 layout: single
 toc: true
 ---
 ![image-center](\assets\images\HTB_broken_authentication\upper.jpg)
 
-
-
 ## Disclaimer
 <img style="float: left; padding-right:10px" src="\assets\images\disclaimer.png" width="110" height="110">
 
 <div style="text-align: justify">The following post may contain spoilers. Use it as a guide or support. It is always better to try it by yourself!</div>
-<div style="text-align: justify">Enjoy :)</div><br>
+<div style="text-align: justify">Enjoy :)</div>
 
 ## Resources
 <img style="float: left; padding-right:10px" src="\assets\images\github.avif" width="110" height="110">
 <div style="text-align: justify">All resources can be found in the following GitHub repository:</div>
-[R4fik1_HTB_broken_authentication_Repository](https://github.com/r4fik1/HTB_Academy/tree/main/HTB_broken_authentication)
+[R4fik1-HTB_broken_authentication_Repository](https://github.com/r4fik1/HTB_Academy/tree/main/HTB_broken_authentication)
 
 ## Module Summary
 <div style="text-align: justify">This module covers common vulnerabilities and misconfigurations regarding Authentication that could be leveraged to gain unauthorized access to a web application. Specifically, in this module, we will cover:</div><br>
