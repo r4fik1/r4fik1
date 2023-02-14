@@ -18,6 +18,8 @@ tags:
   - Python
   - Bash
   - Shell
+  - XXE
+  - XML
 layout: single
 toc: true
 ---
@@ -337,7 +339,7 @@ http://IP:PORT/profile_images/shell.phar?cmd=cat ../../../../flag.txt
 <div style="text-align: justify">1. When accessing the target, the source code shows that it only accepts files with the ".svg" extension.</div><br>
 ![image-center](\assets\images\HTB_File_Upload_Attacks\Q7\1.png)
 
-<div style="text-align: justify">2. Create a shell with the extension ".svg" with an "xml" payload that allows reading files on the server.</div>
+<div style="text-align: justify">2. Create a shell with the extension ".svg" with a "xml" payload that allows reading files on the server.</div>
 >>You can download the shell from the following link: [shell.svg](https://github.com/r4fik1/HTB_Academy/tree/main/HTB_File_Upload_Attacks)
 <br>
 
@@ -422,7 +424,7 @@ http://IP:PORT/profile_images/shell.phar?cmd=cat ../../../../flag.txt
 <div style="text-align: justify">11. The response of the request with length 188 is "Extension not allowed".</div><br>
 ![image-center](\assets\images\HTB_File_Upload_Attacks\Q8\11.png)
 
-<div style="text-align: justify">12. Create a shell with the allowed extension ".svg" with an xml payload that returns the source code of "upload.php" in Base64.</div>
+<div style="text-align: justify">12. Create a shell with the allowed extension ".svg" with a xml payload that returns the source code of "upload.php" in Base64.</div>
 >>You can download the shell from the following link: [shell.svg](https://github.com/r4fik1/HTB_Academy/tree/main/HTB_File_Upload_Attacks)
 <br>
 
@@ -450,7 +452,7 @@ http://IP:PORT/profile_images/shell.phar?cmd=cat ../../../../flag.txt
 - (5) Image upload directory.
 - (6) Name format of uploaded images.
 
-<div style="text-align: justify">17. Create a shell with the allowed extension ".svg" with an xml payload that returns the source code of "common-functions.php" in Base64.</div>
+<div style="text-align: justify">17. Create a shell with the allowed extension ".svg" with a xml payload that returns the source code of "common-functions.php" in Base64.</div>
 >>You can download the shell from the following link: [shell2.svg](https://github.com/r4fik1/HTB_Academy/tree/main/HTB_File_Upload_Attacks)
 <br>
 
@@ -500,14 +502,14 @@ cp image.jpg shell.phar.jpeg
 <div style="text-align: justify">26. We also see the request in the Burpsuite and how it has been successfully uploaded.</div><br>
 ![image-center](\assets\images\HTB_File_Upload_Attacks\Q8\27.png)
 
-<div style="text-align: justify">27. With the information of the path where the images are located and the name format they have, execute the url with the "cmd" parameter so that it executes an "ls" command in the root. We see a text file with the name of "flag_xxxx.txt".</div>
+<div style="text-align: justify">27. With the information of the path where the images are located and the name format they have, execute the url with the "cmd" parameter so that it executes a "ls" command in the root. We see a text file with the name of "flag_xxxx.txt".</div>
 
 ```
 http://IP:PORT/contact/user_feedback_submissions/YYMMDD_shell.phar.jpeg?cmd=ls ../../../../../
 ```
 ![image-center](\assets\images\HTB_File_Upload_Attacks\Q8\28.png)
 
-<div style="text-align: justify">28. Execute the url with the "cmd" parameter so that it executes an "cat" command to the file "flag_xxxx.txt" and we get de flag.</div>
+<div style="text-align: justify">28. Execute the url with the "cmd" parameter so that it executes a "cat" command to the file "flag_xxxx.txt" and we get de flag.</div>
 
 ```
 http://IP:PORT/contact/user_feedback_submissions/YYMMDD_shell.phar.jpeg?cmd=cat ../../../../../flag_xxxx.txt
