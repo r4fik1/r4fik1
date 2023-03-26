@@ -11,6 +11,7 @@ categories:
 tags:
   - HTB-Academy
   - Bug Bounty Hunter
+  - Penetration Tester
   - Web
   - OWASP TOP 10
   - File Upload Attacks
