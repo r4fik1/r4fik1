@@ -101,7 +101,7 @@ php -S 10.10.15.60:8000
 <div style="text-align: justify">6. When you click on save, you are redirected to a section where you can save the data permanently. In the following screenshot it is verified that the app has accepted the payload. Click on Save.</div><br>
 ![image-center](\assets\images\HTB_Session_Security\Q11\6.png)
 
-<div style="text-align: justify">7. Access http://minilab.htb.net/submit-solution and see how the success field is "false".</div><br>
+<div style="text-align: justify">7. Access "http://minilab.htb.net/submit-solution" and see how the success field is "false".</div><br>
 ![image-center](\assets\images\HTB_Session_Security\Q11\7.png)
 
 <div style="text-align: justify">8. Insert the following link that contains the profile with the payload as a parameter.</div>
