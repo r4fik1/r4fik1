@@ -1,5 +1,5 @@
 ---
-title: "[HTB] Session Security"
+title: "[HTB_Academy] Session Security"
 excerpt: "**Session Security** Module Walkthrough - HackTheBox Academy"
 header:
   overlay_image: /assets/images/HTB_Session_Security/banner.png
@@ -58,7 +58,7 @@ We will also discuss remediation guidance regarding the abovementioned vulnerabi
 <div style="text-align: justify">1. We utilize virtual hosts (vhosts) to house the web applications to simulate a large, realistic environment with multiple webservers. Since these vhosts all map to a different directory on the same host, we have to make manual entries in our /etc/hosts file on the Pwnbox or local attack VM to interact with the lab.</div><br>
 ![image-center](\assets\images\HTB_Session_Security\Q11\1.png)
 
-<div style="text-align: justify">2. Access to http://minilab.htb.net. First you have to log in with the credentials provided in the statement. Enter the credentials and click on login.</div>
+<div style="text-align: justify">2. Access to "http://minilab.htb.net". First you have to log in with the credentials provided in the statement. Enter the credentials and click on login.</div>
 ```
 Email: heavycat106
 Password: rocknrol
