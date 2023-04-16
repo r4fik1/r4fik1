@@ -116,7 +116,7 @@ http://minilab.htb.net/submit-solution?url=http://minilab.htb.net/profile?email=
 ```
 ![image-center](\assets\images\HTB_Session_Security\Q11\9.png)
 
-<div style="text-align: justify">10. In chrome introduce that cookie in storage and update.</div><br>
+<div style="text-align: justify">10. In Chrome, introduce that cookie in storage and update.</div><br>
 ![image-center](\assets\images\HTB_Session_Security\Q11\10.png)
 
 <div style="text-align: justify">11. The admin profile has been accessed within the app. Click on the "Change Visibility" button.</div><br>
