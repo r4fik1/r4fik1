@@ -29,6 +29,7 @@ toc: true
 <div style="text-align: justify">All resources can be found in the following GitHub repository:</div>
 [R4fik1-HTB_information_gathering_Repository](https://github.com/r4fik1/HTB_Academy/tree/main/HTB_information_gathering_web_edition)
 
+
 ## Module Summary
 
 
