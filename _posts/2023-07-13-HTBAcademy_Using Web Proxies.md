@@ -1,5 +1,5 @@
 ---
-title: "[HTB] Using Web Proxies"
+title: "[HTB_Academy] Using Web Proxies"
 excerpt: "**Using Web Proxies** Module Walkthrough - HackTheBox Academy"
 header:
   overlay_image: /assets/images/HTB_using_web_proxies/banner.png

@@ -1,5 +1,5 @@
 ---
-title: "[HTB] Information Gathering - Web Edition"
+title: "[HTB_Academy] Information Gathering - Web Edition"
 excerpt: "**Information Gathering - Web Edition** Module Walkthrough - HackTheBox Academy"
 header:
   overlay_image: /assets/images/HTB_information_gathering_web_edition/banner.png

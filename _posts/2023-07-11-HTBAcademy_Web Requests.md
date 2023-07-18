@@ -1,5 +1,5 @@
 ---
-title: "[HTB] Web Requests"
+title: "[HTB_Academy] Web Requests"
 excerpt: "**Web Requests** Module Walkthrough - HackTheBox Academy"
 header:
   overlay_image: /assets/images/HTB_web_requests/banner.png
