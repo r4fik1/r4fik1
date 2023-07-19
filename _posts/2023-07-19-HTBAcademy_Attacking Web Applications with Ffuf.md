@@ -24,6 +24,12 @@ toc: true
 <div style="text-align: justify">The following post may contain spoilers. Use it as a guide or support. It is always better to try it by yourself!</div>
 <div style="text-align: justify">Enjoy :)</div>
 
+## Resources
+<img style="float: left; padding-right:10px" src="\assets\images\github.avif" width="110" height="110">
+<div style="text-align: justify">All resources can be found in the following GitHub repository:</div>
+[R4fik1-HTB_information_gathering_Repository](https://github.com/r4fik1/HTB_Academy/tree/main/HTB_attacking_web_applications_with_ffuf)
+
+
 ## Module Summary
 This module introduces key fundamentals that must be mastered to be successful in information security. Understanding web requests is essential for understanding how web applications work, which is necessary before attempting to attack or secure any web application. This makes this module the very first step in web application penetration testing.
 
