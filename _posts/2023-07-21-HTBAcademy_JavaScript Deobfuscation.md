@@ -26,7 +26,7 @@ toc: true
 ## Resources
 <img style="float: left; padding-right:10px" src="\assets\images\github.avif" width="110" height="110">
 <div style="text-align: justify">All resources can be found in the following GitHub repository:</div>
-[R4fik1-HTB_broken_authentication_Repository](https://github.com/r4fik1/HTB_Academy/tree/main/HTB_javascript_deobfuscation)
+[R4fik1-HTB_javascript_deobfuscation_Repository](https://github.com/r4fik1/HTB_Academy/tree/main/HTB_javascript_deobfuscation)
 
 ## Module Summary
 
