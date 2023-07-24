@@ -101,7 +101,7 @@ In addition to this, the Cross-Site Scripting (XSS) module will teach you the fo
 
 ## XSS Discovery
 
->**Q. Utilize some of the techniques mentioned in this section to identify the vulnerable input parameter found in the above server. What is the name of the vulnerable parameter? **
+>**Q. Utilize some of the techniques mentioned in this section to identify the vulnerable input parameter found in the above server. What is the name of the vulnerable parameter?**
 
 <div style="text-align: justify">7. Access the url which is a registration form. Fill all fields with test text. Open the developer tools of the web browser and check the status of the request response.</div><br>
 ![image-center](\assets\images\HTB_Cross-Site_Scripting_(XSS)\Q4\0.png)
