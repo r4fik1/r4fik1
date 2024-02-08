@@ -119,9 +119,6 @@ author:
     - label: "Try Hack Me"
       icon: "fab fa-cloudversify"
       url: #"https://tryhackme.com/badge/445073"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/r4fik1_"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/r4fik1"
@@ -131,21 +128,9 @@ author:
     - label: "Hack The Box"
       icon: "fa fa-fw fa-cube"
       url: "https://app.hackthebox.com/profile/430489"
-    - label: "YouTube"
-      icon: "fab fa-youtube"
-      url: "https://www.youtube.com/channel/UCkn830sBFHvlJQn7soICvhw"
-    - label: "Instagram"
-      icon: "fab fa-instagram"
-      url: "https://www.instagram.com/r4fik1/"
-    - label: "TikTok"
-      icon: "fab fa-tiktok"
-      url: "https://www.tiktok.com/@r4fik1"
     - label: "Buy Me A Coffee"
       icon: "fas fa-mug-hot"
       url: "https://www.buymeacoffee.com/marcosmartin"
-    - label: "Discord"
-      icon: "fab fa-discord"
-      url: "https://discordapp.com/users/339791021590183940"
       
 # Site Footer
 footer:
@@ -153,12 +138,6 @@ footer:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/marcos-martin-gutierrez/"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/r4fik1_"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://twitter.com/r4f1k1hacks"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: https://github.com/r4fik1
@@ -168,18 +147,7 @@ footer:
     - label: "Bitbucket"
       icon: "fab fa-fw fa-bitbucket"
       # url:
-    - label: "YouTube"
-      icon: "fab fa-youtube"
-      url: "https://www.youtube.com/channel/UCkn830sBFHvlJQn7soICvhw"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/r4fik1/"
-    - label: "TikTok"
-      icon: "fab fa-fw fa-tiktok"
-      url: "https://www.tiktok.com/@r4fik1"
-    - label: "YouTube"
-      icon: "fab fa-youtube"
-      url: "https://www.youtube.com/channel/UCkn830sBFHvlJQn7soICvhw"
+
 
 # Reading Files
 include:
