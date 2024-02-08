@@ -106,16 +106,13 @@ analytics:
 author:
   name             : "Marcos Martín Gutiérrez"
   avatar           : "/assets/images/logoMarcos.png"
-  bio              : "DevSecOps Automation & Security Engineer"
+  bio              : "Security Engineer"
   location         : "The Netherlands"
   email            : "marcosmartingutierrez89@gmail.com"
   links:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/marcos-martin-gutierrez/"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "marcosmartingutierrez89@gmail"
     - label: "Try Hack Me"
       icon: "fab fa-cloudversify"
       url: #"https://tryhackme.com/badge/445073"
